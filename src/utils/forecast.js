@@ -14,13 +14,14 @@ const forecast = (latitiude, longitude, callback) => {
             callback('Unable to find location', undefined)
         } else {
             const data = {
-                main: body.weather[0].description,
+                description: body.weather[0].description,
                 temp: body.main.temp,
                 wind: body.wind.speed,
                 location: body.name,
                 country: body.sys.country
             }
             callback(undefined, data)
+            //callback(undefined, 'temperature: ' + body.main.temp + '\nwind speed: ' + body.wind.speed + '\ndescription: ' + body.weather[0].description)
         }
     })
 
